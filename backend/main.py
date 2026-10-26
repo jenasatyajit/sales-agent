@@ -119,7 +119,7 @@ async def list_sessions(db: AsyncSession = Depends(get_session)):
 
 
 @app.get("/api/sessions/{session_id}", response_model=schemas.SessionDetail)
-async def get_session(session_id: str, db: AsyncSession = Depends(get_session)):
+async def get_session_detail(session_id: str, db: AsyncSession = Depends(get_session)):
     session = (
         await db.execute(
             select(CallSession)
